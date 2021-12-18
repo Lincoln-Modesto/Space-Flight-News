@@ -9,7 +9,7 @@ export function Header() {
 
   const [searchTerm, setSearchTerm] = useState('');
 
-  const { articles, articlesFiltered } = useArticlesContext();
+  const { articles, articlesFiltered, NewerOrOlderArticles } = useArticlesContext();
 
   const articleFiltered = useMemo(() => (
     articles?.filter((articles) => (
@@ -21,31 +21,43 @@ export function Header() {
     articlesFiltered(articleFiltered);
   }
 
+  function handleSelect(value) {
+    NewerOrOlderArticles(value)
+  }
+
   useEffect(() => {
     articlesFiltered(articleFiltered);
-  }, [articles])
+  }, [articleFiltered])
 
   return (
     <Container>
-        <div className='content'>
-          <input
-            type="text"
-            placeholder="Pesquisar"
-            value={searchTerm}
-            onChange={handleSearch} />
+      <div className='content'>
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleSearch} />
 
-          <select name="Organizar">
-            <option value="">Mais antigas</option>
-            <option value="">Mais novas</option>
-          </select>
-        </div>
+        <select
+          name="sort"
+          onChange={(e) => handleSelect(e.target.value)}>
+          <option
+            value="Newer">
+            Newer
+          </option>
+          <option
+            value="Older">
+            Older
+          </option>
+        </select>
+      </div>
 
-        <div id="logo">
-          <img src={logo} alt='logo' />
-        </div>
-        <div id="divisor">
-          <div></div>
-        </div>
+      <div id="logo">
+        <img src={logo} alt='logo' />
+      </div>
+      <div id="divisor">
+        <div></div>
+      </div>
     </Container>
   )
 }

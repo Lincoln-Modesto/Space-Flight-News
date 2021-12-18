@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useModalContext } from '../../context/ModalContext';
 
 import { ModalContainer, Container } from './styles';
 import { Title, SubTitle } from '../Title';
@@ -7,38 +8,44 @@ import close from '../../assets/close.png'
 
 export default function Modal() {
 
+  const { modalState: { article, visible }, closeModal } = useModalContext();
+
+  const date = article.publishedAt.split("T")[0];
+
   return (
     <>
-      <ModalContainer>
-
+      {visible && <ModalContainer>
         <Container>
           <div className="close">
-            <Link to="/">
+            <Link to="/" onClick={closeModal}>
               <img src={close} alt="close" />
             </Link>
           </div>
 
           <div className='content'>
             <div>
-              <img alt="card" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRhQr-D3o-GWxOZMGhAy7FPSc8jHS-xT5hlQ&usqp=CAU" />
+              <img alt="card" src={article.imageUrl} />
             </div>
             <div>
-              <Title>Lorem ipsum</Title>
+              <Title>{article.title}</Title>
               <div>
-                <span>12/12/12</span>
+                <span>{date}</span>
               </div>
-              <SubTitle>lorem ipsum lorem ipsumlorem ipsumlorem
-                ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</SubTitle>
+              <SubTitle>{article.summary}</SubTitle>
             </div>
           </div>
-          <div className="container-button">
+          <a
+            href={article.url}
+            rel="noreferrer"
+            target="_blank"
+            className="container-button">
             <SmallButton type="button">
-              Ir para o site
+              Go to website
             </SmallButton>
-          </div>
+          </a>
 
         </Container>
-      </ModalContainer>
+      </ModalContainer>}
     </>
 
   )

@@ -19,7 +19,7 @@ export const Container = styled.div`
   padding: 3rem;
   border-radius: 10px;
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   box-shadow: drop-shadow 0px 4px 10px rgba(0, 0, 0, 0.04);
   z-index: 999;
 
@@ -36,8 +36,8 @@ export const Container = styled.div`
    
     img{
       margin-right: 3rem;
-      width: 300px;
-      height: 200px;
+      width: 400px;
+      height: 300px;
     }
   }
 
@@ -45,7 +45,9 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem
+    margin-top: 2rem;
+
+    text-decoration: none
   }
 
   p{

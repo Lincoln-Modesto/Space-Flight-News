@@ -43,4 +43,12 @@ export const CardContainer = styled.div`
   span{
     margin-top: 0.3rem;
   }
+
+  a{
+    text-decoration: none;
+
+    :active{
+      text-decoration: none;
+    }
+  }
 `

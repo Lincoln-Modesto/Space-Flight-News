@@ -1,4 +1,9 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, 
+{ createContext, 
+  useContext, 
+  useState,
+  useCallback
+} from 'react';
 
 import api from '../services/api';
 
@@ -9,8 +14,9 @@ function ArticlesProvider({children}){
 
     const [articles, setArticles] = useState([]);
     const [filteredArticle, setFilteredArticle] = useState();
+    const [order, setOrder] = useState('Newer')
 
-    async function loadArticles() {
+    const loadArticles = useCallback(async () =>  {
         try {
             const response = await api.get('?_limit=10');
             const res = response.data
@@ -19,15 +25,25 @@ function ArticlesProvider({children}){
         } catch (err) {
             console.log(err.message);
         }
-    }
+    }, [articles])
 
     const articlesFiltered = (value) =>{
       setFilteredArticle(value)
     }
 
+    const NewerOrOlderArticles = (value) => {
+      setOrder(value)
+    }
+
   return (
     <ArticlesContext.Provider
-      value={{ loadArticles, articles, articlesFiltered, filteredArticle }}
+      value={{ 
+        loadArticles, 
+        articles,
+        articlesFiltered, 
+        filteredArticle,
+        NewerOrOlderArticles,
+        order }}
     >
       {children}
     </ArticlesContext.Provider>
