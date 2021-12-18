@@ -9,7 +9,8 @@ export const CardContainer = styled.div`
   flex-direction: ${({direction}) => (direction ? 'row-reverse' : 'row')};
 
   .content{
-    margin: ${({direction}) => (direction ? '0 3rem' : '0')};
+    margin-right: ${({direction}) => (direction ? '0' : '4rem')};
+    margin-left: ${({direction}) => (direction ? '4rem' : '0')};
     height: 200px;
     position: relative;
 
@@ -37,7 +38,6 @@ export const CardContainer = styled.div`
   }
 
   img{
-    margin-left: ${({direction}) => (direction ? '0' : '3rem')};
     width: 300px;
     height: 200px;
     margin-top: 5px;
