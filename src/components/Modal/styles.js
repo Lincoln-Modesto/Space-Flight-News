@@ -19,7 +19,7 @@ export const Container = styled.div`
   padding: 3rem;
   border-radius: 10px;
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   box-shadow: drop-shadow 0px 4px 10px rgba(0, 0, 0, 0.04);
   z-index: 999;
 

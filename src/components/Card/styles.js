@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
 export const CardContainer = styled.div`
-  margin-top: 3.5rem;
+  margin-top: 4rem;
   display: flex;
   max-width: 800px;
   justify-content: space-between;
   align-items: center;
-  flex-direction: ${({direction}) => (direction ? 'row-reverse' : 'row')};
+  flex-direction: ${({direction}) => (direction % 2 === 0 ? 'row-reverse' : 'row')};
 
   .content{
-    margin-right: ${({direction}) => (direction ? '0' : '4rem')};
-    margin-left: ${({direction}) => (direction ? '4rem' : '0')};
-    height: 200px;
+    margin-right: ${({direction}) => (direction % 2 === 0 ? '0' : '4rem')};
+    margin-left: ${({direction}) => (direction % 2 === 0 ? '4rem' : '0')};
     position: relative;
 
     >div{
@@ -20,27 +19,21 @@ export const CardContainer = styled.div`
       align-items: center;
     }
 
-    .container-button{
-      position: absolute;
-      left: 0;
-      bottom: 0;
+    button{
+      margin: 1rem 0;
     }
   }
 
-  a{
+  small{
     font-weight: bold;
+    font-size: 14px;
     color: ${({theme}) => theme.colors.secondary.main};
-    text-decoration: none;
-
-    :hover{
-      text-decoration: underline;
-    }
   }
 
   img{
-    width: 300px;
-    height: 200px;
-    margin-top: 5px;
+    width: 400px;
+    height: 300px;
+    border: 2px solid #fff;
   }
 
   p{

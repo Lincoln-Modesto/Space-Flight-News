@@ -6,15 +6,21 @@ import GlobalStyle from './styles/GlobalStyle';
 import defaultTheme from './styles/theme/default';
 
 import { Home } from "./pages/Home";
+import { ArticlesProvider } from './context/ArticleContext';
+import { ModalProvider } from './context/ModalContext';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={defaultTheme}>
-        <GlobalStyle />
-        <Routes />
-        <Home />
-      </ThemeProvider>
+      <ArticlesProvider>
+        <ModalProvider>
+          <ThemeProvider theme={defaultTheme}>
+            <GlobalStyle />
+            <Routes />
+            <Home />
+          </ThemeProvider>
+        </ModalProvider>
+      </ArticlesProvider>
     </BrowserRouter>
   );
 }

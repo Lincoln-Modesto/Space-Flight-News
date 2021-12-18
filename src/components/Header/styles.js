@@ -10,7 +10,7 @@ export const Header = styled.header`
     margin-right: 1rem;
     border-radius: 0.3rem;
     border: 1px solid ${({ theme }) => theme.colors.gray[200]};
-    width: 20%;
+    width: 15%;
 
     :focus{
     box-shadow: 0 0 0 0;
@@ -36,13 +36,13 @@ export const Header = styled.header`
     }
   }
 
-  div:first-child{
+  .content{
     display: flex;
     justify-content: flex-end;
   }
 
   img{
-    height: 200px
+    height: 100px
   }
 
   #logo{

@@ -2,25 +2,22 @@ import { SmallButton } from "../Button"
 import { SubTitle, Title } from "../Title"
 import { CardContainer } from "./styles"
 
-export function Card({direction}) {
+export function Card({article, index}) {
   return (
-    <CardContainer direction={direction}>
+    <CardContainer direction={index}>
       <div className="content">
-        <Title>Lorem ipsum</Title>
+        <Title>{article.title}</Title>
         <div>
-          <span>12/12/12</span>
-          <a href="https://#">Visitar</a>
+          <span>{article.updatedAt}</span>
+          <small>{article.newsSite}</small>
         </div>
-        <SubTitle>lorem ipsum lorem ipsumlorem ipsumlorem
-          ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</SubTitle>
-        <div className="container-button">
+        <SubTitle>{article.summary}</SubTitle>
           <SmallButton type="button">
             Ver mais
           </SmallButton>
-        </div>
       </div>
       <div>
-        <img alt="card" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRhQr-D3o-GWxOZMGhAy7FPSc8jHS-xT5hlQ&usqp=CAU" />
+        <img alt="card" src={article.imageUrl} />
       </div>
 
     </CardContainer>
