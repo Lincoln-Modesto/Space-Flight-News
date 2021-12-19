@@ -2,23 +2,24 @@
 
 This is a challenge by [Coodesh](https://coodesh.com/)
 
-This is a website news about space and space travel
+Esse é um projeto de um site de notícias sobre espaço e viagens espaciais
 
 ## Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esse projeto foi construído com [Create React App](https://github.com/facebook/create-react-app).
 
 ### Available Scripts
 
-In the project directory, you can run:
+Para instalar as dependências, no diretório do projeto, execute o comando:
+
+#### `yarn`
+
+Para executar, no diretório do projeto, execute o comando:
 
 #### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O app irá rodar em modo de desenvolvimento.
+Abra [http://localhost:3000](http://localhost:3000) para visualiza-lo no seu navegador.
 
 ![logo](src/assets/logo.png?raw=true "logo")
 ![logo](src/assets/home.png?raw=true "home")
