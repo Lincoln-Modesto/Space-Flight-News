@@ -5,7 +5,6 @@ import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
 import { Header } from "../../components/Header";
 import { Container } from "./styles";
-import { useState } from 'react/cjs/react.development';
 
 export function Home() {
 
@@ -29,15 +28,13 @@ export function Home() {
   
       return Date.parse(b.publishedAt) - Date.parse(a.publishedAt)
     }
-  
+
     if (orderBy === 'Newer') {
-  
+
       filteredArticle?.sort(compareNewer)
-      console.log(filteredArticle)
     } else {
   
       filteredArticle?.sort(compareOlder)
-      console.log(filteredArticle)
     }
   }
 
