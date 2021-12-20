@@ -6,7 +6,7 @@ export default function Routes(){
 
     return(
         <Switch>      
-            <Route exact path='/articles/:id' component={Modal}/>
+            <Route exact path='/articles/:id/modal' component={Modal}/>
         </Switch>
     )
 }

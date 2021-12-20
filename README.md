@@ -8,6 +8,8 @@ Esse é um projeto de um site de notícias sobre espaço e viagens espaciais
 
 Esse projeto foi construído com [Create React App](https://github.com/facebook/create-react-app).
 
+##### React.js || context.api || styled-components || react-router-dom || axios
+
 ### Available Scripts
 
 Para instalar as dependências, no diretório do projeto, execute o comando:

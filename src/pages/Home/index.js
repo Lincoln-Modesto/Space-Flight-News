@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useArticlesContext } from '../../context/ArticleContext'
+import { Link } from 'react-router-dom';
 
 import { Button } from "../../components/Button";
 import { Card } from "../../components/Card";
@@ -9,11 +10,11 @@ import logo from '../../assets/logo.png'
 
 export function Home() {
 
-  const { 
-    articles, 
+  const {
+    articles,
     loadArticles,
     startArticles
-   } = useArticlesContext();
+  } = useArticlesContext();
 
   const [searchTerm, setSearchTerm] = useState('');
   const [order, setOrder] = useState('Newer');
@@ -82,8 +83,11 @@ export function Home() {
         </div>
 
         <div id="logo">
-          <img src={logo} alt='logo' />
+          <Link to="/">
+            <img src={logo} alt='logo' />
+          </Link>
         </div>
+
         <div id="divisor">
           <div></div>
         </div>

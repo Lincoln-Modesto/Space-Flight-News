@@ -13,6 +13,7 @@ const ArticlesContext = createContext({});
 function ArticlesProvider({children}){
 
     const [articles, setArticles] = useState([]);
+    const [articlesCont, setArticlesCont] = useState(10);
 
     const loadArticles = useCallback(async () =>  {
         try {
@@ -27,10 +28,11 @@ function ArticlesProvider({children}){
 
     const startArticles = useCallback(async () =>  {
       try {
-          const response = await api.get('?_start=10');
+          const response = await api.get(`?_start=${articlesCont}`);
           const res = response.data
           Array.prototype.unshift.apply(res, articles);
           setArticles(res);
+          setArticlesCont(prevstate => prevstate+10)
       } catch (err) {
           console.log(err.message);
       }
@@ -41,7 +43,7 @@ function ArticlesProvider({children}){
       value={{ 
         loadArticles, 
         articles,
-        startArticles
+        startArticles,
       }}
     >
       {children}
