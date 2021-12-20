@@ -23,7 +23,7 @@ export function Card({ article, index }) {
         </div>
         <SubTitle>{article.summary}</SubTitle>
         <Link
-          to={`/articles/${article.id}/modal`}
+          to={`/articles/${article.id}`}
           onClick={handleModal}>
           <SmallButton type="button">
             View more
