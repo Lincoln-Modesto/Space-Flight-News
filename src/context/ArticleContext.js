@@ -13,8 +13,6 @@ const ArticlesContext = createContext({});
 function ArticlesProvider({children}){
 
     const [articles, setArticles] = useState([]);
-    const [filteredArticle, setFilteredArticle] = useState();
-    const [order, setOrder] = useState('Newer')
 
     const loadArticles = useCallback(async () =>  {
         try {
@@ -27,23 +25,24 @@ function ArticlesProvider({children}){
         }
     }, [articles])
 
-    const articlesFiltered = (value) =>{
-      setFilteredArticle(value)
-    }
-
-    const NewerOrOlderArticles = (value) => {
-      setOrder(value)
-    }
+    const startArticles = useCallback(async () =>  {
+      try {
+          const response = await api.get('?_start=10');
+          const res = response.data
+          Array.prototype.unshift.apply(res, articles);
+          setArticles(res);
+      } catch (err) {
+          console.log(err.message);
+      }
+  }, [articles])
 
   return (
     <ArticlesContext.Provider
       value={{ 
         loadArticles, 
         articles,
-        articlesFiltered, 
-        filteredArticle,
-        NewerOrOlderArticles,
-        order }}
+        startArticles
+      }}
     >
       {children}
     </ArticlesContext.Provider>
